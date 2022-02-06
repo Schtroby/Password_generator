@@ -10,26 +10,33 @@ nr_letters= int(input("How many letters would you like in your password?\n"))
 nr_symbols = int(input(f"How many symbols would you like?\n"))
 nr_numbers = int(input(f"How many numbers would you like?\n"))
 
+# Worker version :)))
 pass_ch = []
-for n in range(0, nr_letters):
+final_pass = ""
+for n in range(1, nr_letters + 1):
   let_len = int(len(letters))
   ran_lett = random.randint(0, let_len -1 )
   letters[n] = letters[ran_lett]
   pass_ch.append(letters[n])
 
-for j in range(0, nr_numbers):
+for j in range(1, nr_numbers + 1):
   num_len = int(len(numbers))
   ran_num = random.randint(0, num_len -1 )
   numbers[j] = numbers[ran_num]
   pass_ch.append(numbers[j])
 
-for i in range(0, nr_symbols):
+for i in range(1, nr_symbols + 1):
   sym_len = int(len(symbols))
   ran_sym = random.randint(0, sym_len -1 )
   symbols[i] = symbols[ran_sym]
   pass_ch.append(symbols[i])
-print(pass_ch)
+#print(pass_ch)
 
+for k in range(len(pass_ch)):
+  final_pass += pass_ch[k]
+  str_final = list(final_pass)
+  random.shuffle(str_final)
+print(f"Here is your password: " + ''.join(str_final))
 
 #Eazy Level - Order not randomised:
 #e.g. 4 letter, 2 symbol, 2 number = JduE&!91
